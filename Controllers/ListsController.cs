@@ -115,7 +115,16 @@ namespace ConstruccionDeSoftware_ProyectoFinal.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             List list = db.Lists.Find(id);
+
+
+
+            foreach (var item in list.Products.ToList())
+            {
+                db.Products.Remove(item);
+            }
+
             db.Lists.Remove(list);
+
             db.SaveChanges();
             return RedirectToAction("Index");
         }
