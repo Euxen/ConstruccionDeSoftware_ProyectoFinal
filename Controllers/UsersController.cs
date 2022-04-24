@@ -20,18 +20,6 @@ namespace ConstruccionDeSoftware_ProyectoFinal.Controllers
             return View(db.Users.ToList());
         }
 
-        // This is for Login
-        [HttpGet]
-        public ActionResult Login()
-        {
-            return View();
-        }
-
-        public ActionResult Verify(User currentUser)
-        {
-            return View();
-        }
-
         // GET: Users/Details/5
         public ActionResult Details(int? id)
         {
