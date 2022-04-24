@@ -50,6 +50,7 @@ namespace ConstruccionDeSoftware_ProyectoFinal.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "ProductID,ListID,Name,Quantity")] Product product)
         {
+
             if (ModelState.IsValid)
             {
                 db.Products.Add(product);
