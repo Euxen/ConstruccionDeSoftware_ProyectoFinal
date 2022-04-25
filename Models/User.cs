@@ -14,7 +14,6 @@ namespace ConstruccionDeSoftware_ProyectoFinal
             Lists = new HashSet<List>();
         }
 
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int UserID { get; set; }
 
         [StringLength(50)]

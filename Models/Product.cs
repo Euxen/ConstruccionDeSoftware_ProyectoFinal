@@ -9,7 +9,6 @@ namespace ConstruccionDeSoftware_ProyectoFinal
     [Table("Product")]
     public partial class Product
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int ProductID { get; set; }
 
         public int? ListID { get; set; }
