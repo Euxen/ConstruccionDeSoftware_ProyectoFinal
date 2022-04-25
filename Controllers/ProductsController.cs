@@ -12,7 +12,9 @@ namespace ConstruccionDeSoftware_ProyectoFinal.Controllers
 {
     public class ProductsController : Controller
     {
-        private AzureDB_ConnectionEntity db = new AzureDB_ConnectionEntity();
+    
+        private AzureDBEntity db = new AzureDBEntity();
+
 
         // GET: Products
         public ActionResult Index()

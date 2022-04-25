@@ -12,7 +12,8 @@ namespace ConstruccionDeSoftware_ProyectoFinal.Controllers
 {
     public class ListsController : Controller
     {
-        private AzureDB_ConnectionEntity db = new AzureDB_ConnectionEntity();
+    
+        private AzureDBEntity db = new AzureDBEntity();
 
         // GET: Lists
         public ActionResult Index()
@@ -115,6 +116,13 @@ namespace ConstruccionDeSoftware_ProyectoFinal.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             List list = db.Lists.Find(id);
+
+
+            foreach (var product in list.Products.ToList())
+            {
+                db.Products.Remove(product);
+            }
+
             db.Lists.Remove(list);
             db.SaveChanges();
             return RedirectToAction("Index");
