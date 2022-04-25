@@ -12,7 +12,7 @@ namespace ConstruccionDeSoftware_ProyectoFinal.Controllers
 {
     public class ProductsController : Controller
     {
-        private DB_Connection db = new DB_Connection();
+        private AzureDB_ConnectionEntity db = new AzureDB_ConnectionEntity();
 
         // GET: Products
         public ActionResult Index()
@@ -50,7 +50,6 @@ namespace ConstruccionDeSoftware_ProyectoFinal.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "ProductID,ListID,Name,Quantity")] Product product)
         {
-
             if (ModelState.IsValid)
             {
                 db.Products.Add(product);

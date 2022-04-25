@@ -12,7 +12,7 @@ namespace ConstruccionDeSoftware_ProyectoFinal.Controllers
 {
     public class UsersController : Controller
     {
-        private DB_Connection db = new DB_Connection();
+        private AzureDB_ConnectionEntity db = new AzureDB_ConnectionEntity();
 
         // GET: Users
         public ActionResult Index()
@@ -46,7 +46,7 @@ namespace ConstruccionDeSoftware_ProyectoFinal.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Name,Lastname,Username,Password,Email")] User user)
+        public ActionResult Create([Bind(Include = "UserID,Name,Lastname,Username,Password,Email")] User user)
         {
             if (ModelState.IsValid)
             {
@@ -110,17 +110,6 @@ namespace ConstruccionDeSoftware_ProyectoFinal.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             User user = db.Users.Find(id);
-
-            foreach (var lists in user.Lists.ToList())
-            {
-                foreach (var products in lists.Products.ToList())
-                {
-                    db.Products.Remove(products);
-                }
-
-                db.Lists.Remove(lists);
-            }
-
             db.Users.Remove(user);
             db.SaveChanges();
             return RedirectToAction("Index");
