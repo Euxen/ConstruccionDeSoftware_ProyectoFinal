@@ -16,6 +16,7 @@ namespace ConstruccionDeSoftware_ProyectoFinal.Controllers
     
         private AzureDBEntity db = new AzureDBEntity();
 
+        List<List> collection = new List<List>();
 
         // GET: Users
         public ActionResult Index()
@@ -143,8 +144,8 @@ namespace ConstruccionDeSoftware_ProyectoFinal.Controllers
                 
                 
                     //Check if string is null or not, else it will throw errors
-                    if (String.IsNullOrEmpty(username) && String.IsNullOrEmpty(password))
-                    {
+                    //if (String.IsNullOrEmpty(username) && String.IsNullOrEmpty(password))
+                    //{
                         //We find the first match with our username and password, this will give us an User object
                         AzureDBEntity dbEntity = new AzureDBEntity();
                         var user = dbEntity.Users.FirstOrDefault(e => e.Username == username && e.Password == password);
@@ -153,19 +154,20 @@ namespace ConstruccionDeSoftware_ProyectoFinal.Controllers
                         {
                             //Si existe el usuario, crear un cookie y redireccionarlo a su pagina de listas.
                             FormsAuthentication.SetAuthCookie(user.Username, true);
-                            return RedirectToAction("Index", "Profile");
+                            //Someone needs to make a view and a controller that's unique to the user that just logged in.....
+                            return RedirectToAction("Index", "Lists");
                         }
                         else
                         {
-                            return RedirectToAction("Index", new {message = "No se encontraron los datos" });
+                            return RedirectToAction("Login", new {message = "No se encontraron los datos" });
                         }
 
-                    }
-                    else
-                    {
-                    return RedirectToAction("Index", new { message = "Favor verificar tus datos e intentar el login mas tarde" });
+                    //}
+                    //else
+                    //{
+                    //return RedirectToAction("Login", new { message = "Favor verificar tus datos e intentar el login mas tarde" });
                     
-                    }
+                    //}
 
             }
 
@@ -177,7 +179,7 @@ namespace ConstruccionDeSoftware_ProyectoFinal.Controllers
         public ActionResult Logout()
         {
             FormsAuthentication.SignOut();
-            return RedirectToAction("Index");
+            return RedirectToAction("Login");
         }
 
     }
