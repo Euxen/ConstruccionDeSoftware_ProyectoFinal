@@ -143,6 +143,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="AzureDBEntity.cs" />
+
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ListsController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
@@ -207,6 +208,7 @@
     <Content Include="Views\Lists\Details.cshtml" />
     <Content Include="Views\Lists\Edit.cshtml" />
     <Content Include="Views\Lists\Index.cshtml" />
+
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

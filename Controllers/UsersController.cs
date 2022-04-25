@@ -12,7 +12,9 @@ namespace ConstruccionDeSoftware_ProyectoFinal.Controllers
 {
     public class UsersController : Controller
     {
+    
         private AzureDBEntity db = new AzureDBEntity();
+
 
         // GET: Users
         public ActionResult Index()
@@ -110,17 +112,6 @@ namespace ConstruccionDeSoftware_ProyectoFinal.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             User user = db.Users.Find(id);
-
-            foreach (var lists in user.Lists.ToList())
-            {
-                foreach (var products in lists.Products.ToList())
-                {
-                    db.Products.Remove(products);
-                }
-
-                db.Lists.Remove(lists);
-            }
-
             db.Users.Remove(user);
             db.SaveChanges();
             return RedirectToAction("Index");

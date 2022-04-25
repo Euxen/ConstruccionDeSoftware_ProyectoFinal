@@ -12,7 +12,9 @@ namespace ConstruccionDeSoftware_ProyectoFinal.Controllers
 {
     public class ProductsController : Controller
     {
+    
         private AzureDBEntity db = new AzureDBEntity();
+
 
         // GET: Products
         public ActionResult Index()
