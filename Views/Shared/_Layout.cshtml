@@ -16,9 +16,14 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("User", "Index", "Users", new { area = "" }, new { @class = "navbar-brand" })
                 @Html.ActionLink("List", "Index", "Lists", new { area = "" }, new { @class = "navbar-brand" })
                 @Html.ActionLink("Product", "Index", "Products", new { area = "" }, new { @class = "navbar-brand" })
+
+                @if (User.Identity.IsAuthenticated)
+            {
+                <li><a href="~/Users/Logout">Cerrar Sesion</a></li>
+            }
+
             </div>
            
         </div>
