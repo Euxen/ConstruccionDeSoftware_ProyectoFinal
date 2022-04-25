@@ -14,7 +14,6 @@ namespace ConstruccionDeSoftware_ProyectoFinal
             Products = new HashSet<Product>();
         }
 
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int ListID { get; set; }
 
         public int? UserID { get; set; }

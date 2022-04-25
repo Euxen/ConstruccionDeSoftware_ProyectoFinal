@@ -5,10 +5,10 @@ using System.Linq;
 
 namespace ConstruccionDeSoftware_ProyectoFinal
 {
-    public partial class DB_Connection : DbContext
+    public partial class AzureDB_ConnectionEntity : DbContext
     {
-        public DB_Connection()
-            : base("name=DB_Connection")
+        public AzureDB_ConnectionEntity()
+            : base("name=AzureDB_ConnectionEntity")
         {
         }
 
