@@ -154,8 +154,9 @@ namespace ConstruccionDeSoftware_ProyectoFinal.Controllers
                         {
                             //Si existe el usuario, crear un cookie y redireccionarlo a su pagina de listas.
                             FormsAuthentication.SetAuthCookie(user.Username, true);
+                             Session["User"] = user;
                             //Someone needs to make a view and a controller that's unique to the user that just logged in.....
-                            return RedirectToAction("Index", "Lists");
+                            return RedirectToAction("Profiles");
                         }
                         else
                         {
@@ -173,6 +174,14 @@ namespace ConstruccionDeSoftware_ProyectoFinal.Controllers
 
             //If it's not valid then just return the View.
             return View();
+        }
+
+        public ActionResult Profile()
+        {
+            var user = (User)Session["User"];
+
+            var currentUser = db.Users.Where(e => e.Username == user.Username);
+            return View(currentUser.ToList());
         }
 
         [Authorize]

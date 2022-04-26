@@ -1,48 +1,42 @@
-﻿@Model List<List>
+﻿@Model IEnumerable<ConstruccionDeSoftware_ProyectoFinal.List>
 
-@{
-    Layout = null;
-}
+    @{
+        ViewBag.Title = "Index";
+    }
 
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
-</head>
-<body>
-    <a href="/Lists/Create" class="btn btn-primary" style="float:right">Nueva Lista</a>
-    <div class="row">
-        <div class="col-lg-12">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>
-                            UserID
-                        </th>
-                        <th>
-                            Nombre de Lista
-                        </th>
-                        
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var list in Model)
-                    {
+   
+    <body>
+        <a href="/Lists/Create" class="btn btn-primary" style="float:right">Nueva Lista</a>
+        <div class="row">
+            <div class="col-lg-12">
+                <table class="table" style="width:100%">
+                    <thead>
                         <tr>
-                            <td>@list.UserID</td>
-                            <td>@list.Name</td>
-                            
-                            <td>
-                                <button type="button" class="btn btn-primary">Editar</button>
-                                <button type="button" class="btn btn-danger">Eliminar</button>
-                            </td>
+                            <th>
+                                UserID
+                            </th>
+                            <th>
+                                Nombre de Lista
+                            </th>
+
                         </tr>
-                    }
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        @foreach (var list in Model)
+                        {
+                            <tr>
+                                <td>@list.UserID</td>
+                                <td>@list.Name</td>
+
+                                <td>
+                                    <button type="button" class="btn btn-primary">Editar</button>
+                                    <button type="button" class="btn btn-danger">Eliminar</button>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
         </div>
-    </div>
-</body>
-</html>
+    </body>
+
